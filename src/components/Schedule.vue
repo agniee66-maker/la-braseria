@@ -29,14 +29,16 @@ const schedule = [
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding-inline: 30px;
+  padding: 30px;
   height: 100%;
+  background-color: var(--color-monte);
+  border-radius: var(--radius-sm);
 }
 
 .schedule-block__title {
   font-family: var(--font-display);
   font-size: 28px;
-  color: #2C2A1E;
+  color: var(--text-light);
 }
 
 .schedule-block__divider {
@@ -58,14 +60,15 @@ const schedule = [
   font-size: 14px;
   padding-bottom: 12px;
   border-bottom: 0.5px solid #D9D4C8;
+  
 }
 
 .schedule-block__day {
-  color: #2C2A1E;
+  color: var(--text-light);
   font-weight: 500;
 }
 
 .schedule-block__hours {
-  color: #6B6560;
+  color: var(--text-muted);
 }
 </style>

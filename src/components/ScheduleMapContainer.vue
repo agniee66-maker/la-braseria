@@ -1,7 +1,9 @@
 <template>
     <div class="schedule-map-container">
-        <MapBlock />
-        <Schedule />
+        <div class="schedule-map-inner">
+            <MapBlock />
+            <Schedule />
+        </div>
     </div>
 </template>
 
@@ -13,12 +15,16 @@ import Schedule from '../components/Schedule.vue'
 
 <style scoped>
 .schedule-map-container {
+}
+
+.schedule-map-inner {
+  max-width: 1280px;
+  margin: auto;
   display: grid;
   grid-template-columns: 2fr 1fr;
   align-items: stretch;
   justify-content: center;
   gap: 32px;
-  padding: 60px;
-  background-color: #F5F0E8;
+  padding: 60px 48px;
 }
 </style>

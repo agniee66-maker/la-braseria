@@ -1,10 +1,4 @@
 @import './base.css';
 
-body {
-  font-family: var(--font-body);
-}
-
-h1, h2, h3, h4 {
-  font-family: var(--font-display);
-}
-
+/* Cualquier estilo global adicional va aquí.
+   Las variables y la tipografía base viven en base.css */

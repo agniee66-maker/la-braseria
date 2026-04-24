@@ -5,7 +5,7 @@
     <div class="main-content">
       <RouterView />
     </div>
-    
+
     <AppFooter />
   </div>
 </template>
@@ -25,12 +25,12 @@ import AppFooter from './components/AppFooter.vue'
 #app {
   width: 100%;
   margin: 0 auto;
-  
-  background-color: #3d3d32;
+  background-color: var(--color-brasa);
+  /* Evita scroll horizontal cuando alguna sección rompe el ancho (full-bleed) */
+  overflow-x: clip;
 }
 
 .main-content {
-  max-width: 1280px;
   margin: 0 auto;
 }
 </style>

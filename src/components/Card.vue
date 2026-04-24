@@ -1,105 +1,58 @@
 <template>
-    <div class="card" :style="{ backgroundImage: `url(${card.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }">
-        
-        <div class="card-spacer"></div>
-
-        <div class="card-content">
-            <div class="card-content__text">
-                <span v-if="card.tag" class="card_badge" :style="{ background: card.tag.color }">
-                    {{ card.tag.label }}
-                </span>
-                <h2 class="card_header">{{ card.name }}</h2>
-                <p class="card_description">{{ card.description }}</p>
-            </div>
-            
-
-            <ul class="card-content__allergens">
-                <li  v-for="allergen in card.allergens" :key="allergen.id">
-                    <img class="card-content__allergen__icon" :src="allergen.icon" :alt="allergen.name"  />
-                </li>
-            </ul>
-                 
-        </div>
-
-    </div>
-
+  <div class="card">
+    <transition name="card-fade" mode="out-in">
+      <img
+        :key="image"
+        :src="image"
+        :alt="alt"
+        class="card__image"
+      />
+    </transition>
+  </div>
 </template>
 
-
-<script>
-export default {
-  name: 'DishCard',
-  props: {
-    card: {
-      type: Object,
-      required: true,
-    },
-  },
-} 
+<script setup>
+defineProps({
+  image: { type: String, required: true },
+  alt:   { type: String, default: 'Plato destacado' }
+})
 </script>
 
-
 <style scoped>
-    .card{
-        width: 100%;
-        height: 500px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.45),
+    0 0 0 1px var(--color-line) inset;
+  background: var(--color-brasa-soft);
+}
 
-    .card-spacer{
-        flex: 1;
-    }
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
 
-    .card-content{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end;   
-        
-        padding: 20px 40px 20px 40px;
-        background: rgba(0, 0, 0, 0.4);
-    }
+.card-fade-enter-active,
+.card-fade-leave-active {
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  position: absolute;
+  inset: 0;
+}
 
-    .card-content__text{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-    }
-    
-    .card_badge{
-        color: #fff;
-        font-size: 16px;
-        font-weight: 450;
-        padding: 8px 12px;
-        width: fit-content;
-        margin-bottom: 10px;
-        border-radius: 8px;
-    }
+.card-fade-enter-from {
+  opacity: 0;
+  transform: scale(1.04);
+}
 
-    .card_header{
-        color: #ffffff;
-        font-size: 30px;
-        font-weight: 500;
-        
-    }
-
-    .card_description{
-        color: #fff5e7;
-        padding-top: 10px;
-        font-size: 16px;
-    }
-
-    .card-content__allergens{
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        gap: 10px;
-    }
-
-    .card-content__allergen__icon{
-        height: 50px;
-    }
+.card-fade-leave-to {
+  opacity: 0;
+  transform: scale(0.98);
+}
 </style>

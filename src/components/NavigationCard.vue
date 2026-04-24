@@ -2,50 +2,86 @@
   <RouterLink :to="route" class="nav-card">
     <div class="nav-card__image-wrapper">
       <img :src="image" :alt="title" class="nav-card__image" />
+      <div class="nav-card__image-overlay"></div>
     </div>
+
     <div class="nav-card__content">
       <span class="nav-card__subtitle">{{ subtitle }}</span>
+
       <h2 class="nav-card__title">{{ title }}</h2>
-      <div class="nav-card__divider"></div>
-      <button class="nav-card__btn">Entrar</button>
+
+      <div class="nav-card__divider">
+        <span class="nav-card__divider-dot"></span>
+      </div>
+
+      <span class="nav-card__btn">
+        Entrar
+        <span class="nav-card__btn-arrow">→</span>
+      </span>
     </div>
   </RouterLink>
 </template>
 
 <script setup>
 defineProps({
-  title:    { type: String, required: true },
+  title: { type: String, required: true },
   subtitle: { type: String, required: true },
-  image:    { type: String, required: true },
-  route:    { type: String, required: true }
+  image: { type: String, required: true },
+  route: { type: String, required: true }
 })
 </script>
 
 <style scoped>
+/* ---------- CARD WRAPPER ---------- */
 .nav-card {
   display: flex;
   flex-direction: column;
-  background: #1C1C19;
-  border-radius: 18px;
+  background: var(--bg-primary);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
   overflow: hidden;
-  border: 3px solid #2E2E28;
   text-decoration: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
-.nav-card__image-wrapper {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-}
-.nav-card__image-wrapper::after {
+.nav-card::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: rgba(232, 93, 38, 0.4);
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-llama) 50%,
+    transparent 100%
+  );
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition-base);
+  z-index: 2;
+}
+
+.nav-card:hover {
+  border-color: var(--color-llama);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(182, 58, 43, 0.25);
+}
+
+.nav-card:hover::before {
+  opacity: 1;
+}
+
+/* ---------- IMAGEN ---------- */
+.nav-card__image-wrapper {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
 }
 
 .nav-card__image {
@@ -53,62 +89,118 @@ defineProps({
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.4s ease;
+  transition: transform 0.6s ease;
+  filter: saturate(1.05);
 }
 
-.nav-card:hover {
-  border-color: #D4A853;
-  box-shadow: 0 0 18px rgba(232, 93, 38, 0.35);
+.nav-card__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 14, 14, 0.15) 0%,
+    rgba(14, 14, 14, 0.75) 100%
+  );
+  transition: background var(--transition-base);
 }
 
-.nav-card:hover .nav-card__image-wrapper::after {
-  opacity: 1;
+.nav-card:hover .nav-card__image {
+  transform: scale(1.06);
 }
 
+.nav-card:hover .nav-card__image-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(182, 58, 43, 0.15) 0%,
+    rgba(14, 14, 14, 0.6) 100%
+  );
+}
+
+/* ---------- CONTENIDO ---------- */
 .nav-card__content {
   display: flex;
   flex-direction: column;
-  height: 250px;
   align-items: center;
   text-align: center;
   justify-content: center;
-  padding: 24px 20px 28px;
-  gap: 13px;
+  padding: 32px 24px 30px;
+  gap: 12px;
+  background: var(--bg-primary);
 }
 
 .nav-card__subtitle {
-  font-size: 10px;
+  font-family: var(--font-body);
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #E85D26;
+  color: var(--color-llama);
 }
 
 .nav-card__title {
-  font-size: 26px;
-  font-weight: 500;
-  color: #d1ccc0;
-  line-height: 1.2;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--color-hueso);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  margin: 2px 0 4px;
 }
 
+/* ---------- DIVISOR DECORATIVO ---------- */
 .nav-card__divider {
-  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 72px;
   height: 1px;
-  background: #E85D26;
+  background: var(--color-line-strong);
+  position: relative;
+  margin: 6px 0 14px;
 }
 
+.nav-card__divider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-fuego);
+  box-shadow: 0 0 0 3px rgba(182, 58, 43, 0.18);
+}
+
+/* ---------- CTA ---------- */
 .nav-card__btn {
-  margin-top: 8px;
-  width: 100%;
-  background: #E85D26;
-  color: #fff;
-  border: none;
-  padding: 12px 32px;
-  border-radius: 8px;
-  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  cursor: pointer;
+  color: var(--color-hueso);
+  padding: 12px 26px;
+  border: 1px solid var(--color-fuego);
+  background: transparent;
+  border-radius: var(--radius-sm);
+  transition:
+    background var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.nav-card__btn-arrow {
+  display: inline-block;
+  transition: transform var(--transition-base);
+}
+
+.nav-card:hover .nav-card__btn {
+  background: var(--color-fuego);
+  border-color: var(--color-fuego);
+  color: var(--color-hueso);
+}
+
+.nav-card:hover .nav-card__btn-arrow {
+  transform: translateX(4px);
 }
 </style>

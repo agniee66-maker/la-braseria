@@ -20,12 +20,11 @@ defineProps({
 </script>
 
 <style scoped>
-
 .nav-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  padding: 60px;
-  background: #2b2b23;
+  background: transparent;
 }
+
 </style>
