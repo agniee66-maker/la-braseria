@@ -76,7 +76,7 @@ const navCards = [
   pointer-events: none;
 }
 
-/* Radial cálido de refuerzo */
+/* Radial cálido */
 .grove__glow {
   position: absolute;
   inset: 0;
@@ -101,7 +101,7 @@ const navCards = [
 }
 
 /* ===========================================================
-   QUOTE — frase compacta, una línea, dentro del contenedor
+   QUOTE — frase "del fuego a tu mesa"
    =========================================================== */
 .quote {
   text-align: right;
@@ -120,7 +120,7 @@ const navCards = [
 }
 
 .quote__text {
-  font-family: var(--font-accent);       /* Cormorant Garamond, itálica */
+  font-family: var(--font-accent);    
   font-style: italic;
   font-weight: 500;
   font-size: clamp(36px, 4.5vw, 56px);
@@ -134,19 +134,10 @@ const navCards = [
   color: var(--color-llama);
 }
 
-/* ===========================================================
-   BANNER
-   =========================================================== */
-.home__banner {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  object-position: center;
-}
 
-/* ===========================================================
+/* ==============
    RESPONSIVE
-   =========================================================== */
+   ============== */
 @media (max-width: 720px) {
   .grove__inner {
     padding: 32px 32px 56px;

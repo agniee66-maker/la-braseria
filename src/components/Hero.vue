@@ -90,7 +90,7 @@ onUnmounted(() => clearInterval(interval))
   background:
     radial-gradient(
       ellipse at 80% 40%,
-      rgba(182, 58, 43, 0.18) 0%,
+      rgba(236, 47, 26, 0.18) 0%,
       transparent 55%
     );
   z-index: 0;
@@ -109,9 +109,9 @@ onUnmounted(() => clearInterval(interval))
   align-items: center;
 }
 
-/* ===========================================================
+/* =======================
    IZQUIERDA — contenido
-   =========================================================== */
+   ======================= */
 .hero__content {
   display: flex;
   flex-direction: column;
@@ -211,9 +211,9 @@ onUnmounted(() => clearInterval(interval))
   color: var(--color-llama);
 }
 
-/* ===========================================================
-   DERECHA — imagen rotatoria
-   =========================================================== */
+/* =============================
+   DERECHA — imagen principal
+   ============================= */
 .hero__media {
   position: relative;
   width: 100%;
@@ -251,9 +251,9 @@ onUnmounted(() => clearInterval(interval))
   border-radius: 999px;
 }
 
-/* ===========================================================
+/* =================
    RESPONSIVE
-   =========================================================== */
+   ================= */
 @media (max-width: 900px) {
   .hero__inner {
     grid-template-columns: 1fr;

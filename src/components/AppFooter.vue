@@ -10,9 +10,9 @@
       </div>
 
       <ul class="footer__contact">
-        <li>Avinguda del Mar 12, Reus</li>
+        <li>Avinguda del Mar 12, Barcelona</li>
         <li>Tel. 977 000 000</li>
-        <li>hola@labraseria.com</li>
+        <li>agniee66@gmail.com</li>
       </ul>
 
       <span class="footer__copy">© 2026 Agniee-Maker</span>
@@ -21,9 +21,9 @@
 </template>
 
 <style scoped>
-/* ===========================================================
+/* ==============================
    FOOTER — inverso del header
-   =========================================================== */
+   ============================== */
 .footer {
   position: relative;
   width: 100%;
@@ -34,7 +34,7 @@
   border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-/* Sol PNG decorativo a la derecha, en HUESO marmol */
+/* Sol PNG decorativo a la derecha, en marmol */
 .footer__sun {
   position: absolute;
   top: 50%;
@@ -47,20 +47,20 @@
   background-repeat: no-repeat;
   background-position: center;
   opacity: 0.18;
-  /* Tintado a blanco marmol (HUESO) */
+  /* Tintado a blanco marmol */
   filter: brightness(0) invert(1);
   z-index: 0;
   pointer-events: none;
 }
 
-/* Calentón radial para dar profundidad */
+/* Amarillo radial detras del logo */
 .footer__glow {
   position: absolute;
   inset: 0;
   background:
     radial-gradient(
       ellipse at 10% 50%,
-      rgba(217, 164, 65, 0.18) 0%,
+      rgba(216, 167, 76, 0.18) 0%,
       transparent 55%
     );
   z-index: 0;

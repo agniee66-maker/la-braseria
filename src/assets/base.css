@@ -1,7 +1,7 @@
-/* =========================================================
+/* ================================
    LA BRASERÍA 
    Paleta y tipografía 
-   ========================================================= */
+   ================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap');
 
@@ -22,7 +22,7 @@
   --color-line:         rgba(244, 236, 217, 0.12);  
   --color-line-strong:  rgba(244, 236, 217, 0.24);
 
-  /* ---------- ROLES SEMÁNTICOS ---------- */
+  /* ---------- VARIABLES ---------- */
   --bg-primary:    var(--color-brasa);
   --bg-secondary:  var(--color-monte);
   --bg-surface:    var(--color-brasa-soft);
@@ -40,7 +40,7 @@
   --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* Sustituto web de Söhne */
   --font-accent:  'Cormorant Garamond', Georgia, serif;                    /* Itálica decorativa */
 
-  /* ---------- RADIOS ---------- */
+  /* ---------- RADIUS ---------- */
   --radius-sm: 4px;
   --radius-md: 10px;
   --radius-lg: 18px;
@@ -50,7 +50,7 @@
   --transition-base: 0.3s ease;
 }
 
-/* ---------- RESET BÁSICO GLOBAL ---------- */
+/* ---------- GLOBAL ---------- */
 body {
   font-family: var(--font-body);
   color: var(--text-primary);

@@ -17,13 +17,6 @@
 
         <button class="about__btn">Conócenos</button>
 
-        <!-- Sol de fondo decorativo (como en la referencia) -->
-        <img
-          src="../assets/logo.png"
-          class="about__sun about__sun--bg"
-          alt=""
-          aria-hidden="true"
-        />
       </div>
 
       <!-- ============ DERECHA: galería ============ -->
@@ -41,9 +34,9 @@
 </template>
 
 <style scoped>
-/* ===========================================================
-   ABOUT — full bleed con fondo HUESO (marmol)
-   =========================================================== */
+/* ======================================
+   ABOUT — full bleed con fondo marmol
+   ====================================== */
 .about {
   position: relative;
   width: 100vw;
@@ -63,9 +56,9 @@
   align-items: stretch;
 }
 
-/* ===========================================================
+/* ======================================
    CONTENT — izquierda
-   =========================================================== */
+   ====================================== */
 .about__content {
   position: relative;
   display: flex;
@@ -88,7 +81,7 @@
   height: 240px;
   object-fit: contain;
   opacity: 0.10;
-  /* Tintado en LLAMA dorado */
+  /* Tintado en dorado */
   filter: brightness(0) saturate(100%) invert(78%) sepia(50%) saturate(600%) hue-rotate(3deg) brightness(95%);
   z-index: -1;
   pointer-events: none;
@@ -123,7 +116,7 @@
   margin-bottom: 12px;
 }
 
-/* ---------- BOTÓN: verde MONTE ---------- */
+/* ---------- BOTÓN VERDE ---------- */
 .about__btn {
   font-family: var(--font-body);
   font-size: 12px;
@@ -148,15 +141,6 @@
   transform: translateY(-1px);
 }
 
-/* ===========================================================
-   GALERÍA — 3 cols, 2 rows, con imágenes saltadas
-   [ 1 ][ 2 ][   ]
-   [ 1 ][ 3 ][ 4 ]
-   Donde 1 y 4 ocupan 2 filas.
-   =========================================================== */
-.about__gallery {
-  min-height: 460px;
-}
 
 .about__img {
   width: 100%;
@@ -168,9 +152,9 @@
 }
 
 
-/* ===========================================================
+/* ======================================
    RESPONSIVE
-   =========================================================== */
+   ====================================== */
 @media (max-width: 900px) {
   .about__inner {
     grid-template-columns: 1fr;
