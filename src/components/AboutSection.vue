@@ -3,7 +3,7 @@
     <div class="about__inner">
 
       <!-- ============ IZQUIERDA: texto ============ -->
-      <div class="about__content">
+      <div class="about__content" v-reveal="{ variant: 'left' }">
 
 
         <span class="about__kicker">Bienvenidos a</span>
@@ -19,8 +19,8 @@
 
       </div>
 
-      <!-- ============ DERECHA: galería ============ -->
-      <div class="about__gallery">
+      <!-- ============ DERECHA: fotos ============ -->
+      <div class="about__gallery" v-reveal="{ variant: 'right', delay: 150 }">
         <img
           class="about__img about__img--1"
           src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/96/f6/af/getlstd-property-photo.jpg?w=900&h=500&s=1"
@@ -70,21 +70,6 @@
   isolation: isolate;
   background: var(--color-hueso);
   border-radius: var(--radius-sm);
-}
-
-
-.about__sun--bg {
-  position: absolute;
-  right: -40px;
-  bottom: 20px;
-  width: 240px;
-  height: 240px;
-  object-fit: contain;
-  opacity: 0.10;
-  /* Tintado en dorado */
-  filter: brightness(0) saturate(100%) invert(78%) sepia(50%) saturate(600%) hue-rotate(3deg) brightness(95%);
-  z-index: -1;
-  pointer-events: none;
 }
 
 .about__kicker {
@@ -153,24 +138,43 @@
 
 
 /* ======================================
-   RESPONSIVE
+   RESPONSIVE - version movil
    ====================================== */
 @media (max-width: 900px) {
   .about__inner {
+    max-height: none;
     grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 56px 32px;
+    gap: 0px;
+    padding: 20px 20px;
+  }
+
+  .about__content {
+    padding: 20px 22px;
+    gap: 14px;
+  }
+
+  .about__kicker {
+    font-size: 13px;
+    letter-spacing: 0.28em;
+  }
+
+  .about__title {
+    font-size: clamp(28px, 8vw, 38px);
+  }
+
+  .about__desc {
+    font-size: 14px;
+    max-width: 100%;
   }
 
   .about__gallery {
-    min-height: 360px;
+    min-height: 240px;
+    height: 240px;
   }
 
-  .about__sun--bg {
-    width: 180px;
-    height: 180px;
-    right: -30px;
-    bottom: -30px;
+  .about__img {
+    border-radius: var(--radius-sm);
   }
+
 }
 </style>

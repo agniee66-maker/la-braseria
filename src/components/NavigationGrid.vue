@@ -1,13 +1,18 @@
 <template>
   <div class="nav-grid">
-    <NavigationCard
-      v-for="card in cards"
+    <div
+      v-for="(card, i) in cards"
       :key="card.route"
-      :title="card.title"
-      :subtitle="card.subtitle"
-      :image="card.image"
-      :route="card.route"
-    />
+      v-reveal="{ delay: i * 120, variant: 'up' }"
+      class="nav-grid__cell"
+    >
+      <NavigationCard
+        :title="card.title"
+        :subtitle="card.subtitle"
+        :image="card.image"
+        :route="card.route"
+      />
+    </div>
   </div>
 </template>
 
@@ -27,4 +32,18 @@ defineProps({
   background: transparent;
 }
 
+.nav-grid__cell {
+  display: flex;
+}
+
+.nav-grid__cell > * {
+  width: 100%;
+}
+
+@media (max-width: 820px) {
+  .nav-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
 </style>

@@ -1,0 +1,98 @@
+[
+    {
+        "name": "Patatas bravas",
+        "description": "Clásicas patatas bravas con salsa picante casera y alioli de ajo.",
+        "price": 7.00,
+        "allergens": ["Huevo"],
+        "tag": "Top ventas",
+        "categoria": "entrantes"
+    },
+    {
+        "name": "Calamares a la romana",
+        "description": "Crujientes aros de calamar rebozados, servidos con limón y alioli suave.",
+        "price": 10.70,
+        "allergens": ["Pescado", "Gluten"],
+        "tag": "",
+        "categoria": "entrantes"
+    },
+    {
+        "name": "Empanadas criollas",
+        "description": "Tres unidades de empanada argentina rellenas de carne picada, cebolla y especias, con un toque de comino.",
+        "price": 8.50,
+        "allergens": ["Lácteos", "Gluten"],
+        "tag": "",
+        "categoria": "entrantes"
+    },
+    {
+        "name": "Croquetas de rabo de toro",
+        "description": "Deliciosas croquetas caseras rellenas de jamón serrano, con una textura cremosa por dentro y crujiente por fuera.",
+        "price": 9.00,
+        "allergens": ["Gluten", "Lácteos"],
+        "tag": "Especialidad",
+        "categoria": "entrantes"
+    },
+    {
+        "name": "Milanesa de ternera",
+        "description": "Filete de ternera empanado y frito, servido con papas y salsa de mostaza.",
+        "price": 18.00,
+        "allergens": ["Gluten", "Lácteos"],
+        "tag": "",
+        "categoria": "principales"
+    },
+    {
+        "name": "Asado Argentino",
+        "description": "Jugoso asado de tira cocinado a la parrilla, acompañado de chimichurri y ensalada criolla.",
+        "price": 24.00,
+        "allergens": ["Gluten"],
+        "tag": "Especialidad",
+        "categoria": "principales"
+    },
+    {
+        "name": "Gazpacho andaluz",
+        "description": "Sopa fría de tomate, pepino, pimiento y ajo, perfecta para los días calurosos.",
+        "price": 5.50,
+        "allergens": [],
+        "tag": "",
+        "categoria": "principales"
+    },
+    {
+        "name": "Zumo de naranja natural",
+        "description": "Zumo de naranja recién exprimido, sin añadir azúcar ni otros ingredientes.",
+        "price": 3.50,
+        "allergens": [],
+        "tag": "",
+        "categoria": "bebidas"
+    },
+    {
+        "name": "Cerveza gallega artesanal",
+        "description": "Cerveza artesanal de Galicia, con un sabor refrescante y equilibrado.",
+        "price": 4.00,
+        "allergens": ["Gluten"],
+        "tag": "",
+        "categoria": "bebidas"
+    },
+    {
+        "name": "Tarta de queso casera",
+        "description": "Tarta de queso cremosa con base de galleta, servida con mermelada de frutos rojos.",
+        "price": 6.50,
+        "allergens": ["Lácteos", "Gluten"],
+        "tag": "Casero",
+        "categoria": "postres"
+    },
+    {
+        "name": "Flan de huevo",
+        "description": "Clásico flan de huevo con caramelo, hecho en casa y con ingredientes naturales.",
+        "price": 4.00,
+        "allergens": ["Huevo", "Lácteos"],
+        "tag": "",
+        "categoria": "postres"
+    },
+    {
+        "name": "Coulant de chocolate",
+        "description": "Coulant de chocolate caliente con un centro líquido, servido con helado de vainilla.",
+        "price": 5.50,
+        "allergens": ["Huevo", "Lácteos"],
+        "tag": "Top ventas",
+        "categoria": "postres"
+    }
+]

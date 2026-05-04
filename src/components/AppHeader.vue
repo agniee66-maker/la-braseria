@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{ 'is-open': isOpen }">
     <div class="header__inner">
 
       <div class="header__brand">
@@ -8,17 +8,50 @@
       </div>
 
       <nav class="header__nav">
-        <a href="#">Home</a>
-        <a href="#">Menú</a>
-        <a href="#">Nosotros</a>
-        <a href="#">Contacto</a>
+        <a href="#" @click="$router.push('/')">Home</a>
+        <a href="#" @click="$router.push('/menu')">Menú</a>
+        <a href="#" @click="$router.push('/')">Nosotros</a>
+        <a href="#" @click="$router.push('/')">Contacto</a>
         <a href="#reservar" class="header__cta">Reservar</a>
       </nav>
 
+      <button
+        class="header__burger"
+        :class="{ 'is-active': isOpen }"
+        @click="toggle"
+        :aria-expanded="isOpen"
+        aria-label="Menú"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
     </div>
+
+    <transition name="dropdown">
+      <nav v-if="isOpen" class="header__mobile-nav">
+        <a href="#" @click="$router.push('/')">Home</a>
+        <a href="#" @click="$router.push('/menu')">Menú</a>
+        <a href="#" @click="$router.push('/')">Nosotros</a>
+        <a href="#" @click="$router.push('/')">Contacto</a>
+        <a href="#reservar" class="header__mobile-cta" @click="close">Reservar</a>
+      </nav>
+    </transition>
+
+    <transition name="fade">
+      <div v-if="isOpen" class="header__backdrop" @click="close"></div>
+    </transition>
   </header>
 </template>
 
+<script setup>
+import { ref } from 'vue'
+
+const isOpen = ref(false)
+const toggle = () => (isOpen.value = !isOpen.value)
+const close  = () => (isOpen.value = false)
+</script>
 
 <style scoped>
 .header {
@@ -40,11 +73,10 @@
   height: 100px;
 }
 
-/* BRAND */
 .header__brand {
   display: flex;
   align-items: center;
-  gap: 0px;
+  gap: 0;
   text-decoration: none;
 }
 
@@ -52,7 +84,6 @@
   width: 95px;
   height: 95px;
   object-fit: cover;
-  /* Filtro para teñir el logo en color FUEGO (#B63A2B) */
   filter: brightness(0) saturate(100%) invert(38%) sepia(72%) saturate(600%) hue-rotate(340deg) brightness(95%);
 }
 
@@ -65,7 +96,6 @@
   text-transform: uppercase;
 }
 
-/* NAV */
 .header__nav {
   display: flex;
   align-items: center;
@@ -125,5 +155,153 @@
   background: var(--color-fuego-hover);
   border-color: var(--color-fuego-hover);
   transform: translateY(-1px);
+}
+
+.header__cta::after { display: none; }
+
+.header__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1101;
+}
+
+.header__burger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--color-hueso);
+  border-radius: 2px;
+  transition: transform var(--transition-base), opacity var(--transition-fast);
+  transform-origin: center;
+}
+
+.header__burger.is-active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.header__burger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.header__burger.is-active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.header__mobile-nav {
+  position: absolute;
+  top: 100%;
+  right: 16px;
+  margin-top: 12px;
+  width: min(280px, calc(100vw - 32px));
+  display: flex;
+  flex-direction: column;
+  background: rgba(14, 14, 14, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  gap: 4px;
+  z-index: 1100;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+.header__mobile-nav a {
+  font-family: var(--font-body);
+  color: var(--color-hueso);
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.header__mobile-nav a:hover {
+  background: rgba(244, 236, 217, 0.06);
+  color: var(--color-llama);
+}
+
+.header__mobile-cta {
+  margin-top: 8px;
+  background: var(--color-fuego);
+  color: var(--color-hueso) !important;
+  text-align: center;
+  font-weight: 500;
+}
+
+.header__mobile-cta:hover {
+  background: var(--color-fuego-hover) !important;
+  color: var(--color-hueso) !important;
+}
+
+.header__backdrop {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(14, 14, 14, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1090;
+}
+
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--transition-base);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+@media (max-width: 820px) {
+  .header__inner {
+    padding: 0 20px;
+    height: 78px;
+  }
+
+  .header__logo-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .header__logo-text {
+    font-size: 22px;
+  }
+
+  .header__nav {
+    display: none;
+  }
+
+  .header__burger {
+    display: flex;
+  }
+
+  .header__backdrop {
+    top: 78px;
+  }
 }
 </style>

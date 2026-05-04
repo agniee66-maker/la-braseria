@@ -8,7 +8,7 @@
 
           <div class="grove__inner">
             <!-- Frase -->
-            <div class="quote">
+            <div class="quote" v-reveal="{ variant: 'right' }">
               <h2 class="quote__text">
                 Del fuego <span class="quote__text-accent">a tu mesa.</span>
               </h2>
@@ -17,6 +17,7 @@
             <!-- Navegación -->
             <NavigationGrid :cards="navCards" />
           </div>
+          
           <AboutSection />
 
           <ScheduleMapContainer />
@@ -35,9 +36,9 @@ import ScheduleMapContainer from '@/components/ScheduleMapContainer.vue'
 import AboutSection from '@/components/AboutSection.vue'
 
 const navCards = [
-  { title: "La Carta",         subtitle: "Nuestros platos",    image: "https://cdn.thefork.com/tf-lab/image/upload/w_500,h_500,c_fill,q_auto,f_auto,g_auto:subject/restaurant/f9f4983f-9eee-4af4-8692-ba35bb0adfb8/556b2087-56ef-4db7-a6b1-66bfe11b5440.jpg", route: "/carta" },
-  { title: "Reservas",         subtitle: "Reserva tu mesa",    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Bu86XAU4eqIXPV2o03eqh26vwgR-hlr1pA&s",                                                                                                                                      route: "/reservas" },
-  { title: "Sobre Nosotros",   subtitle: "Nuestra historia",   image: "https://todofp.es/.imaging/mte/todofp-theme/ficha-superior-imagen/dam/todofp/que-estudiar/fotos-ciclos/hosteleria-y-turismo/t-cnico-en-servicios-en-restauraci-n/jcr:content/t-cnico-en-servicios-en-restauraci-n.jpg",                   route: "/nosotros" }
+  { title: "La Carta", subtitle: "Nuestros platos", image: "https://cdn.thefork.com/tf-lab/image/upload/w_500,h_500,c_fill,q_auto,f_auto,g_auto:subject/restaurant/f9f4983f-9eee-4af4-8692-ba35bb0adfb8/556b2087-56ef-4db7-a6b1-66bfe11b5440.jpg", route: "/menu" },
+  { title: "Reservas", subtitle: "Reserva tu mesa", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Bu86XAU4eqIXPV2o03eqh26vwgR-hlr1pA&s", route: "/reservas" },
+  { title: "Sobre Nosotros", subtitle: "Nuestra historia", image: "https://todofp.es/.imaging/mte/todofp-theme/ficha-superior-imagen/dam/todofp/que-estudiar/fotos-ciclos/hosteleria-y-turismo/t-cnico-en-servicios-en-restauraci-n/jcr:content/t-cnico-en-servicios-en-restauraci-n.jpg", route: "/nosotros" }
 ]
 </script>
 

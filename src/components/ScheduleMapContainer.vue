@@ -1,8 +1,12 @@
 <template>
     <div class="schedule-map-container">
         <div class="schedule-map-inner">
-            <MapBlock />
-            <Schedule />
+            <div class="schedule-map__map" v-reveal="{ variant: 'left' }">
+                <MapBlock />
+            </div>
+            <div class="schedule-map__schedule" v-reveal="{ variant: 'right', delay: 150 }">
+                <Schedule />
+            </div>
         </div>
     </div>
 </template>
@@ -14,9 +18,6 @@ import Schedule from '../components/Schedule.vue'
 
 
 <style scoped>
-.schedule-map-container {
-}
-
 .schedule-map-inner {
   max-width: 1280px;
   margin: auto;
@@ -24,7 +25,36 @@ import Schedule from '../components/Schedule.vue'
   grid-template-columns: 2fr 1fr;
   align-items: stretch;
   justify-content: center;
-  gap: 32px;
+  gap: 10px;
   padding: 60px 48px;
+}
+
+.schedule-map__map,
+.schedule-map__schedule {
+  display: flex;
+  min-height: 360px;
+}
+
+.schedule-map__map > *,
+.schedule-map__schedule > * {
+  width: 100%;
+}
+
+@media (max-width: 820px) {
+  .schedule-map-inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 40px 20px;
+  }
+
+  .schedule-map__schedule {
+    order: 1;
+    min-height: auto;
+  }
+
+  .schedule-map__map {
+    order: 2;
+    min-height: 280px;
+  }
 }
 </style>

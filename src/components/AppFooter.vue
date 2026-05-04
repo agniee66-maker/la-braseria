@@ -132,19 +132,27 @@
 }
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 720px) {
+@media (max-width: 820px) {
   .footer__inner {
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
-    padding: 32px 32px;
+    gap: 20px;
+    padding: 28px 25px;
+  }
+
+  .footer__logo {
+    font-size: 22px;
+  }
+
+  .footer__tag {
+    font-size: 10px;
   }
 
   .footer__sun {
-    width: 200px;
-    height: 200px;
-    right: -60px;
-    opacity: 0.14;
+    width: 180px;
+    height: 180px;
+    right: -30px;
+    opacity: 0.12;
   }
 }
 </style>

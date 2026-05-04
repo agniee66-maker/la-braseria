@@ -203,4 +203,60 @@ defineProps({
 .nav-card:hover .nav-card__btn-arrow {
   transform: translateX(4px);
 }
+
+@media (max-width: 820px) {
+  .nav-card {
+    background: linear-gradient(160deg, var(--color-fuego) 0%, #8a2a1f 100%);
+    border-color: rgba(244, 236, 217, 0.18);
+  }
+
+  .nav-card__content {
+    background: transparent;
+    padding: 26px 22px 26px;
+    gap: 10px;
+  }
+
+  .nav-card__image-wrapper {
+    height: 200px;
+  }
+
+  .nav-card__image-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(14, 14, 14, 0.05) 0%,
+      rgba(161, 69, 58, 0.55) 100%
+    );
+  }
+
+  .nav-card__subtitle {
+    color: var(--color-llama);
+  }
+
+  .nav-card__title {
+    color: var(--color-hueso);
+    font-size: 26px;
+  }
+
+  .nav-card__divider {
+    background: rgba(244, 236, 217, 0.35);
+  }
+
+  .nav-card__divider-dot {
+    background: var(--color-llama);
+    box-shadow: 0 0 0 3px rgba(217, 164, 65, 0.25);
+  }
+
+  .nav-card__btn {
+    color: var(--color-hueso);
+    border-color: var(--color-hueso);
+    background-color: var(--color-line);
+  }
+
+  .nav-card:active .nav-card__btn,
+  .nav-card:hover .nav-card__btn {
+    background: var(--color-hueso);
+    border-color: var(--color-hueso);
+    color: var(--color-fuego);
+  }
+}
 </style>

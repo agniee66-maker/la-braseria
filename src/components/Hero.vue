@@ -17,7 +17,7 @@
         </p>
 
         <div class="hero__actions">
-          <button class="hero__btn hero__btn--primary">
+          <button @click="$router.push('/menu')" class="hero__btn hero__btn--primary">
             Ver menú
           </button>
           <button class="hero__btn hero__btn--ghost">
@@ -140,8 +140,46 @@ onUnmounted(() => clearInterval(interval))
 }
 
 .hero__title-accent {
+  display: inline-block;
   color: var(--color-fuego);
   font-style: italic;
+  opacity: 0;
+  transform: translateY(18px) scale(0.96);
+  filter: blur(6px);
+  animation: ignite 1.4s 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes ignite {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+    filter: blur(6px);
+    text-shadow: 0 0 0 transparent;
+    color: var(--color-hueso);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(0) scale(1.02);
+    filter: blur(0);
+    text-shadow: 0 0 28px rgba(217, 164, 65, 0.55);
+    color: var(--color-llama);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    text-shadow: 0 0 0 transparent;
+    color: var(--color-fuego);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__title-accent {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
 }
 
 .hero__desc {
