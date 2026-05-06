@@ -8,11 +8,10 @@
       </div>
 
       <nav class="header__nav">
-        <a href="#" @click="$router.push('/')">Home</a>
-        <a href="#" @click="$router.push('/menu')">Menú</a>
-        <a href="#" @click="$router.push('/')">Nosotros</a>
-        <a href="#" @click="$router.push('/')">Contacto</a>
-        <a href="#reservar" class="header__cta">Reservar</a>
+        <a href="#" @click.prevent="$router.push('/')">Home</a>
+        <a href="#" @click.prevent="$router.push('/menu')">Menú</a>
+        <a href="#" @click.prevent="$router.push('/nosotros')">Nosotros</a>
+        <a href="#" @click.prevent="$router.push('/contacto')" class="header__cta">Contacto</a>
       </nav>
 
       <button
@@ -31,11 +30,10 @@
 
     <transition name="dropdown">
       <nav v-if="isOpen" class="header__mobile-nav">
-        <a href="#" @click="$router.push('/')">Home</a>
-        <a href="#" @click="$router.push('/menu')">Menú</a>
-        <a href="#" @click="$router.push('/')">Nosotros</a>
-        <a href="#" @click="$router.push('/')">Contacto</a>
-        <a href="#reservar" class="header__mobile-cta" @click="close">Reservar</a>
+        <a href="#" @click.prevent="go('/')">Home</a>
+        <a href="#" @click.prevent="go('/menu')">Menú</a>
+        <a href="#" @click.prevent="go('/nosotros')">Nosotros</a>
+        <a href="#" @click.prevent="go('/contacto')" class="header__mobile-cta">Contacto</a>
       </nav>
     </transition>
 
@@ -47,10 +45,16 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const isOpen = ref(false)
 const toggle = () => (isOpen.value = !isOpen.value)
 const close  = () => (isOpen.value = false)
+const go = (path) => {
+  router.push(path)
+  close()
+}
 </script>
 
 <style scoped>

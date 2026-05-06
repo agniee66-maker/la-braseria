@@ -1,6 +1,13 @@
 <template>
     <div class="homePage">
-        <Hero />
+        <Hero
+          kicker="Fuego · Sabor · Amigos"
+          :title="'Auténtico fuego,\nsabor '"
+          title-accent="inolvidable"
+          description="En La Brasería celebramos el fuego, el sabor y lo que nos une: momentos que se disfrutan juntos."
+          :images="heroImages"
+          :buttons="heroButtons"
+        />
 
         <!-- ============ BLOQUE VERDE (quote + nav) ============ -->
         <section class="grove">
@@ -35,9 +42,20 @@ import NavigationGrid from '../components/NavigationGrid.vue'
 import ScheduleMapContainer from '@/components/ScheduleMapContainer.vue'
 import AboutSection from '@/components/AboutSection.vue'
 
+const heroImages = [
+  'https://terracarnicerias.es/cdn/shop/articles/Entrecot_con_Chimich.jpg?v=1768909262&width=1600',
+  'https://www.sortirambnens.com/wp-content/uploads/2019/02/pizza-de-peperoni.jpg',
+  'https://i.ytimg.com/vi/pszaHtAmqBU/maxresdefault.jpg'
+]
+
+const heroButtons = [
+  { label: 'Ver menú',         to: '/menu',     variant: 'primary' },
+  { label: 'Nuestra historia', to: '/nosotros', variant: 'ghost', icon: '▶' }
+]
+
 const navCards = [
   { title: "La Carta", subtitle: "Nuestros platos", image: "https://cdn.thefork.com/tf-lab/image/upload/w_500,h_500,c_fill,q_auto,f_auto,g_auto:subject/restaurant/f9f4983f-9eee-4af4-8692-ba35bb0adfb8/556b2087-56ef-4db7-a6b1-66bfe11b5440.jpg", route: "/menu" },
-  { title: "Reservas", subtitle: "Reserva tu mesa", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Bu86XAU4eqIXPV2o03eqh26vwgR-hlr1pA&s", route: "/reservas" },
+  { title: "Contacto", subtitle: "Reserva tu mesa", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Bu86XAU4eqIXPV2o03eqh26vwgR-hlr1pA&s", route: "/contacto" },
   { title: "Sobre Nosotros", subtitle: "Nuestra historia", image: "https://todofp.es/.imaging/mte/todofp-theme/ficha-superior-imagen/dam/todofp/que-estudiar/fotos-ciclos/hosteleria-y-turismo/t-cnico-en-servicios-en-restauraci-n/jcr:content/t-cnico-en-servicios-en-restauraci-n.jpg", route: "/nosotros" }
 ]
 </script>

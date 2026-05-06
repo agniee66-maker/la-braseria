@@ -2,6 +2,8 @@
     {
         "name": "Patatas bravas",
         "description": "Clásicas patatas bravas con salsa picante casera y alioli de ajo.",
+        "longDescription": "Patatas cortadas a mano, fritas en aceite de oliva virgen hasta dejarlas crujientes por fuera y mullidas por dentro. Las bañamos con nuestra salsa brava casera, picante y ahumada, y un alioli suave de ajo asado que hacemos cada mañana en el restaurante.",
+        "image": "https://thecookinglab.es/wp-content/uploads/2014/02/patatas-bravas-receta.jpg",
         "price": 7.00,
         "allergens": ["Huevo"],
         "tag": "Top ventas",
@@ -10,6 +12,8 @@
     {
         "name": "Calamares a la romana",
         "description": "Crujientes aros de calamar rebozados, servidos con limón y alioli suave.",
+        "longDescription": "Calamares frescos del Mediterráneo cortados en aros gruesos, rebozados con harina especial y fritos al momento para conservar su ternura. Servidos con un cuarto de limón y un alioli ligero de ajo y perejil que ata todos los sabores.",
+        "image": "https://cdn.elcocinerocasero.com/imagen/receta/1000/2022-05-25-21-02-06/calamares-a-la-romana.jpeg",
         "price": 10.70,
         "allergens": ["Pescado", "Gluten"],
         "tag": "",
@@ -18,6 +22,8 @@
     {
         "name": "Empanadas criollas",
         "description": "Tres unidades de empanada argentina rellenas de carne picada, cebolla y especias, con un toque de comino.",
+        "longDescription": "Tres empanadas argentinas hechas a mano siguiendo la receta de la abuela Rosa. Masa fina horneada hasta dorarse, rellenas con carne picada de ternera salteada con cebolla, pimentón, comino y aceitunas. Crujientes por fuera, jugosas por dentro.",
+        "image": "https://i0.wp.com/lasuperiora.com.ar/wp-content/uploads/2024/05/recetas-empanadascarne.jpg?fit=1000%2C868&ssl=1",
         "price": 8.50,
         "allergens": ["Lácteos", "Gluten"],
         "tag": "",
@@ -26,6 +32,8 @@
     {
         "name": "Croquetas de rabo de toro",
         "description": "Deliciosas croquetas caseras rellenas de jamón serrano, con una textura cremosa por dentro y crujiente por fuera.",
+        "longDescription": "Bechamel cremosa rellena con rabo de toro guisado durante seis horas hasta deshacerse, todo dentro de un rebozado dorado y muy crujiente. Cuatro unidades por ración, servidas calientes para que el corazón se derrita en la boca.",
+        "image": "https://okdiario.com/img/2018/06/30/croquetas-de-rabo-de-toro.jpg",
         "price": 9.00,
         "allergens": ["Gluten", "Lácteos"],
         "tag": "Especialidad",
@@ -34,6 +42,8 @@
     {
         "name": "Milanesa de ternera",
         "description": "Filete de ternera empanado y frito, servido con papas y salsa de mostaza.",
+        "longDescription": "Filete fino de ternera macerado en huevo y especias, empanado con miga de pan fresco y frito en aceite caliente hasta quedar dorado y crujiente. Acompañado de patatas asadas con romero y nuestra salsa de mostaza a la antigua.",
+        "image": "https://www.carniceriademadrid.es/wp-content/uploads/2022/11/receta-milanesa-ternera.jpg",
         "price": 18.00,
         "allergens": ["Gluten", "Lácteos"],
         "tag": "",
@@ -42,6 +52,8 @@
     {
         "name": "Asado Argentino",
         "description": "Jugoso asado de tira cocinado a la parrilla, acompañado de chimichurri y ensalada criolla.",
+        "longDescription": "Costillas de ternera de pasto cocinadas durante cuatro horas a la brasa, hasta que la carne se separa sola del hueso. Servido con chimichurri tradicional preparado al momento y ensalada criolla de tomate, cebolla y pimiento.",
+        "image": "https://carnesargentinas.es/wp-content/uploads/2023/01/El-arte-del-asado-argentino.jpg",
         "price": 24.00,
         "allergens": ["Gluten"],
         "tag": "Especialidad",
@@ -50,6 +62,8 @@
     {
         "name": "Gazpacho andaluz",
         "description": "Sopa fría de tomate, pepino, pimiento y ajo, perfecta para los días calurosos.",
+        "longDescription": "Tomate maduro de huerta cercana, pepino, pimiento, ajo y un buen chorro de aceite de oliva virgen extra. Triturado y colado para conseguir una textura sedosa, servido muy frío con dados de pan crujiente, pepino picado y un hilo final de aceite.",
+        "image": "https://imag.bonviveur.com/gazpacho-andaluz-casero.jpg",
         "price": 5.50,
         "allergens": [],
         "tag": "",
@@ -58,6 +72,8 @@
     {
         "name": "Zumo de naranja natural",
         "description": "Zumo de naranja recién exprimido, sin añadir azúcar ni otros ingredientes.",
+        "longDescription": "Naranjas valencianas exprimidas en el momento que lo pides. Sin azúcar añadido, sin agua, sin nada más. Solo la fruta y el frío de un vaso bien servido.",
+        "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=900&q=80",
         "price": 3.50,
         "allergens": [],
         "tag": "",
@@ -66,6 +82,8 @@
     {
         "name": "Cerveza gallega artesanal",
         "description": "Cerveza artesanal de Galicia, con un sabor refrescante y equilibrado.",
+        "longDescription": "Cerveza artesanal elaborada en las Rías Baixas, con maltas tostadas, lúpulo aromático y un toque ligeramente afrutado en el final. Servida muy fría en jarra helada para mantener la espuma cremosa hasta el último sorbo.",
+        "image": "https://images.unsplash.com/photo-1535958636474-b021ee887b13?auto=format&fit=crop&w=900&q=80",
         "price": 4.00,
         "allergens": ["Gluten"],
         "tag": "",
@@ -74,6 +92,8 @@
     {
         "name": "Tarta de queso casera",
         "description": "Tarta de queso cremosa con base de galleta, servida con mermelada de frutos rojos.",
+        "longDescription": "Tarta de queso al horno, hecha con queso fresco, queso crema y nata. Base crujiente de galleta de mantequilla y nuestra mermelada casera de frutos rojos del bosque que matiza el dulzor con un toque ácido.",
+        "image": "https://recetasconyaya.com/wp-content/uploads/2025/08/tarta-de-queso-cremosa-featured.Webp.webp",
         "price": 6.50,
         "allergens": ["Lácteos", "Gluten"],
         "tag": "Casero",
@@ -82,6 +102,8 @@
     {
         "name": "Flan de huevo",
         "description": "Clásico flan de huevo con caramelo, hecho en casa y con ingredientes naturales.",
+        "longDescription": "Receta tradicional con huevos camperos, leche fresca, azúcar y un toque suave de vainilla en rama. Caramelo amargo hecho a fuego lento por encima. Servido bien frío para que la textura se mantenga firme y sedosa.",
+        "image": "https://static.bainet.es/clip/9c993f21-16d2-4148-bece-ba68ae1e172a_source-aspect-ratio_1600w_0.jpg",
         "price": 4.00,
         "allergens": ["Huevo", "Lácteos"],
         "tag": "",
@@ -90,9 +112,21 @@
     {
         "name": "Coulant de chocolate",
         "description": "Coulant de chocolate caliente con un centro líquido, servido con helado de vainilla.",
+        "longDescription": "Bizcocho denso de chocolate negro al 70% con corazón líquido. Sale del horno en el momento que lo pides para que la primera cucharada rompa la corteza y libere el chocolate fundido. Acompañado de una bola de helado de vainilla bourbon.",
+        "image": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/f058cc67b3df69d9d639230500fb261e/Derivates/9cf0db7a63048d16087e4a1cb760752d4947bd3c.jpg",
         "price": 5.50,
         "allergens": ["Huevo", "Lácteos"],
         "tag": "Top ventas",
         "categoria": "postres"
+    },
+    {
+        "name": "Refresco",
+        "description": "Coca cola, Fanta, Nestea, Aquarius, etc.",
+        "longDescription": "Coca-Cola, Fanta naranja, Fanta limón, Aquarius, Nestea o Sprite. Servidos en vaso alto con hielo, rodaja de limón y la cantidad justa de chispa para acompañar cualquier plato.",
+        "image": "https://frankfurtlacanicaazul.com/wp-content/uploads/2020/11/surtido-latas.jpg",
+        "price": 3.00,
+        "allergens": [],
+        "tag": "",
+        "categoria": "bebidas"
     }
 ]

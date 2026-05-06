@@ -15,7 +15,7 @@
           de cocina argentina en un ambiente cálido y acogedor.
         </p>
 
-        <button class="about__btn">Conócenos</button>
+        <RouterLink to="/nosotros" class="about__btn">Conócenos</RouterLink>
 
       </div>
 
@@ -103,11 +103,13 @@
 
 /* ---------- BOTÓN VERDE ---------- */
 .about__btn {
+  display: inline-block;
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
+  text-decoration: none;
   color: var(--color-hueso);
   background: var(--color-monte);
   border: 1px solid var(--color-monte);

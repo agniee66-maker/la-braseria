@@ -2,36 +2,42 @@
   <section class="hero">
     <div class="hero__inner">
 
-      <!-- ============ IZQUIERDA: contenido estático ============ -->
       <div class="hero__content">
-        <span class="hero__kicker">Fuego · Sabor · Amigos</span>
+        <span v-if="kicker" class="hero__kicker">{{ kicker }}</span>
 
-        <h1 class="hero__title">
-          Auténtico fuego,<br />
-          sabor <span class="hero__title-accent">inolvidable</span>
-        </h1>
+        <h1 v-if="title" class="hero__title">{{ title }}<template v-if="titleAccent"> <span class="hero__title-accent">{{ titleAccent }}</span></template></h1>
 
-        <p class="hero__desc">
-          En La Brasería celebramos el fuego, el sabor
-          y lo que nos une: momentos que se disfrutan juntos.
-        </p>
+        <p v-if="description" class="hero__desc">{{ description }}</p>
 
-        <div class="hero__actions">
-          <button @click="$router.push('/menu')" class="hero__btn hero__btn--primary">
-            Ver menú
-          </button>
-          <button class="hero__btn hero__btn--ghost">
-            <span class="hero__btn-play" aria-hidden="true">▶</span>
-            Nuestra historia
-          </button>
+        <div v-if="buttons.length" class="hero__actions">
+          <template v-for="(btn, i) in buttons" :key="i">
+            <RouterLink
+              v-if="btn.to"
+              :to="btn.to"
+              class="hero__btn"
+              :class="`hero__btn--${btn.variant || 'primary'}`"
+            >
+              <span v-if="btn.icon" class="hero__btn-play" aria-hidden="true">{{ btn.icon }}</span>
+              {{ btn.label }}
+            </RouterLink>
+            <button
+              v-else
+              type="button"
+              class="hero__btn"
+              :class="`hero__btn--${btn.variant || 'primary'}`"
+              @click="btn.onClick && btn.onClick()"
+            >
+              <span v-if="btn.icon" class="hero__btn-play" aria-hidden="true">{{ btn.icon }}</span>
+              {{ btn.label }}
+            </button>
+          </template>
         </div>
       </div>
 
-      <!-- ============ DERECHA: imagen rotando ============ -->
       <div class="hero__media">
         <Card :image="images[current]" />
 
-        <div class="hero__dots" role="tablist" aria-label="Imágenes destacadas">
+        <div v-if="images.length > 1" class="hero__dots" role="tablist" aria-label="Imágenes destacadas">
           <button
             v-for="(img, i) in images"
             :key="i"
@@ -51,25 +57,30 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import Card from './Card.vue'
 
-const images = [
-  'https://terracarnicerias.es/cdn/shop/articles/Entrecot_con_Chimich.jpg?v=1768909262&width=1600',
-  'https://www.sortirambnens.com/wp-content/uploads/2019/02/pizza-de-peperoni.jpg',
-  'https://i.ytimg.com/vi/pszaHtAmqBU/maxresdefault.jpg'
-]
+const props = defineProps({
+  kicker: { type: String, default: '' },
+  title: { type: String, default: '' },
+  titleAccent: { type: String, default: '' },
+  description: { type: String, default: '' },
+  images: { type: Array, required: true },
+  interval: { type: Number, default: 5500 },
+  buttons: { type: Array, default: () => [] }
+})
 
 const current = ref(0)
-const next = () => (current.value = (current.value + 1) % images.length)
+const next = () => (current.value = (current.value + 1) % props.images.length)
 const goTo = (i) => (current.value = i)
 
-let interval
-onMounted(() => { interval = setInterval(next, 5500) })
-onUnmounted(() => clearInterval(interval))
+let intervalId
+onMounted(() => {
+  if (props.images.length > 1) {
+    intervalId = setInterval(next, props.interval)
+  }
+})
+onUnmounted(() => clearInterval(intervalId))
 </script>
 
 <style scoped>
-/* ==================
-   HERO — full bleed
-   ================== */
 .hero {
   position: relative;
   width: 100vw;
@@ -79,7 +90,6 @@ onUnmounted(() => clearInterval(interval))
   isolation: isolate;
 }
 
-/* Fondo decorativo sutil (brasas) */
 .hero::before {
   content: '';
   position: absolute;
@@ -109,9 +119,6 @@ onUnmounted(() => clearInterval(interval))
   align-items: center;
 }
 
-/* =======================
-   IZQUIERDA — contenido
-   ======================= */
 .hero__content {
   display: flex;
   flex-direction: column;
@@ -137,6 +144,7 @@ onUnmounted(() => clearInterval(interval))
   text-transform: uppercase;
   letter-spacing: 0.01em;
   margin: 2px 0 6px;
+  white-space: pre-line;
 }
 
 .hero__title-accent {
@@ -190,7 +198,6 @@ onUnmounted(() => clearInterval(interval))
   max-width: 440px;
 }
 
-/* ---------- ACTIONS ---------- */
 .hero__actions {
   display: flex;
   gap: 14px;
@@ -204,6 +211,7 @@ onUnmounted(() => clearInterval(interval))
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
+  text-decoration: none;
   padding: 14px 28px;
   border-radius: var(--radius-sm);
   cursor: pointer;
@@ -249,9 +257,6 @@ onUnmounted(() => clearInterval(interval))
   color: var(--color-llama);
 }
 
-/* =============================
-   DERECHA — imagen principal
-   ============================= */
 .hero__media {
   position: relative;
   width: 100%;
@@ -289,9 +294,6 @@ onUnmounted(() => clearInterval(interval))
   border-radius: 999px;
 }
 
-/* =================
-   RESPONSIVE
-   ================= */
 @media (max-width: 900px) {
   .hero__inner {
     grid-template-columns: 1fr;

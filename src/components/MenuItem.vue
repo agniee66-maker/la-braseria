@@ -1,5 +1,5 @@
 <template>
-  <article class="menu-item">
+  <article class="menu-item" @click="$emit('select')">
     <span v-if="tag" class="menu-item__tag">{{ tag }}</span>
 
     <div class="menu-item__row">
@@ -31,6 +31,8 @@ const props = defineProps({
   tag:         { type: String, default: '' }
 })
 
+defineEmits(['select'])
+
 const formattedPrice = computed(() => {
   return `${props.price.toFixed(2).replace('.', ',')} €`
 })
@@ -41,8 +43,16 @@ const formattedPrice = computed(() => {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 18px 0;
+  padding: 18px 10px;
   border-bottom: 1px solid rgba(14, 14, 14, 0.08);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.menu-item:hover{
+  background-color: rgba(14, 14, 14, 0.04);
+  border-radius: var(--radius-md);
 }
 
 .menu-item:last-child {
@@ -52,8 +62,8 @@ const formattedPrice = computed(() => {
 .menu-item__tag {
   align-self: flex-start;
   font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 550;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-fuego);
@@ -67,7 +77,7 @@ const formattedPrice = computed(() => {
 
 .menu-item__name {
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--color-brasa);
   line-height: 1.2;
@@ -85,7 +95,7 @@ const formattedPrice = computed(() => {
 
 .menu-item__price {
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--color-fuego);
   white-space: nowrap;
@@ -122,8 +132,9 @@ const formattedPrice = computed(() => {
 
 @media (min-width: 768px) {
   .menu-item {
-    padding: 22px 0;
+    padding: 22px 10px;
     gap: 8px;
+    border-radius: var(--radius-md);
   }
 
   .menu-item__name,

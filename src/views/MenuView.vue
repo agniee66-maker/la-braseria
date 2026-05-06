@@ -36,20 +36,25 @@
             :price="item.price"
             :allergens="item.allergens"
             :tag="item.tag"
+            @select="selectedItem = item"
           />
         </div>
       </section>
 
     </main>
+
+    <MenuItemModal :item="selectedItem" @close="selectedItem = null" />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import MenuItem from '../components/MenuItem.vue';
+import MenuItemModal from '../components/MenuItemModal.vue';
 
 
 const categoria = ref('entrantes');
+const selectedItem = ref(null);
 
 const categorias = {
   entrantes: { num: '01', title: 'Entrantes' },
