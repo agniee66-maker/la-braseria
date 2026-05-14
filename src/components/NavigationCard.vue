@@ -206,8 +206,8 @@ defineProps({
 
 @media (max-width: 820px) {
   .nav-card {
-    background: linear-gradient(160deg, var(--color-fuego) 0%, #8a2a1f 100%);
-    border-color: rgba(244, 236, 217, 0.18);
+    background: linear-gradient(160deg, var(--color-fuego) 0%, #404429 100%);
+    border-color: rgba(0, 0, 0, 0.18);
   }
 
   .nav-card__content {
@@ -223,13 +223,13 @@ defineProps({
   .nav-card__image-overlay {
     background: linear-gradient(
       180deg,
-      rgba(14, 14, 14, 0.05) 0%,
+      rgba(14, 14, 14, 0.05) 50%,
       rgba(161, 69, 58, 0.55) 100%
     );
   }
 
   .nav-card__subtitle {
-    color: var(--color-llama);
+    color: var(--color-hueso);
   }
 
   .nav-card__title {

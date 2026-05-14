@@ -1,17 +1,12 @@
 <template>
   <div class="menu-view">
-    <header class="menu-view__header">
-      <img src="../assets/logo.png" alt="" class="menu-view__sun" aria-hidden="true" />
-      <span class="menu-view__kicker">La Brasería</span>
-      <h1 class="menu-view__title">Carta</h1>
-      <p class="menu-view__hint">Disfruta del fuego en cada plato</p>
-    </header>
+    <PageHeader kicker="La Brasería" title="Carta" hint="Disfruta del fuego en cada plato" />
 
     <div class="filtros">
-      <button class="filtros__btn" @click="categoria = 'entrantes'">Entrantes</button>
-      <button class="filtros__btn" @click="categoria = 'principales'">Principales</button>
-      <button class="filtros__btn" @click="categoria = 'postres'">Postres</button>
-      <button class="filtros__btn" @click="categoria = 'bebidas'">Bebidas</button>
+      <button class="filtros__btn" :class="{ 'filtros__btn--active': categoria === 'entrantes' }" @click="categoria = 'entrantes'">Entrantes</button>
+      <button class="filtros__btn" :class="{ 'filtros__btn--active': categoria === 'principales' }" @click="categoria = 'principales'">Principales</button>
+      <button class="filtros__btn" :class="{ 'filtros__btn--active': categoria === 'postres' }" @click="categoria = 'postres'">Postres</button>
+      <button class="filtros__btn" :class="{ 'filtros__btn--active': categoria === 'bebidas' }" @click="categoria = 'bebidas'">Bebidas</button>
     </div>
   
 
@@ -51,6 +46,7 @@
 import { ref, onMounted, computed } from 'vue';
 import MenuItem from '../components/MenuItem.vue';
 import MenuItemModal from '../components/MenuItemModal.vue';
+import PageHeader from '../components/PageHeader.vue';
 
 
 const categoria = ref('entrantes');
@@ -84,30 +80,12 @@ const itemsFiltrados = computed(() => {
   min-height: 100vh;
 }
 
-.menu-view__header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 32px 24px 28px;
-  gap: 6px;
-  position: relative;
-  background: var(--color-hueso);
-  border-bottom: 1px solid rgba(14, 14, 14, 0.08);
-}
-
-.menu-view__sun {
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(38%) sepia(72%) saturate(600%) hue-rotate(340deg) brightness(95%);
-}
 
 .filtros{
   display: flex;
   justify-content: space-between;
   padding-top: 20px;
-  padding-inline: 20px;
+  padding-inline: 15px;
   max-width: 500px;
   margin: 0 auto;
 }
@@ -119,43 +97,17 @@ const itemsFiltrados = computed(() => {
   letter-spacing: 0.18em;
   color: var(--color-fuego);
   background: rgba(182, 58, 43, 0.08);
-  padding: 6px 12px;
+  padding: 6px 10px;
   border-radius: 4px;
   border: none;
 }
 
-.filtros__btn:hover{
-  background: rgba(182, 58, 43, 0.16);
-  cursor: pointer;
+
+.filtros__btn--active {
+  background: var(--color-fuego);
+  color: var(--color-hueso);
 }
 
-.menu-view__kicker {
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--color-fuego);
-}
-
-.menu-view__title {
-  font-family: var(--font-display);
-  font-size: 38px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  color: var(--color-brasa);
-  line-height: 1;
-  margin: 4px 0 0;
-}
-
-.menu-view__hint {
-  font-family: var(--font-accent);
-  font-style: italic;
-  font-size: 14px;
-  color: rgba(14, 14, 14, 0.6);
-  margin-top: 4px;
-}
 
 .menu-view__main {
   max-width: 720px;
@@ -206,24 +158,12 @@ const itemsFiltrados = computed(() => {
   flex-direction: column;
 }
 
+
+
+
+/* VERSION PARA PANTALLAS GRANDES SECUNDARIO, EL MENU SE VERA MAS EN MOVILES*/
+
 @media (min-width: 768px) {
-  .menu-view__header {
-    padding: 56px 32px 44px;
-  }
-
-  .menu-view__sun {
-    width: 72px;
-    height: 72px;
-  }
-
-  .menu-view__title {
-    font-size: 56px;
-  }
-
-  .menu-view__hint {
-    font-size: 16px;
-  }
-
   .menu-view__main {
     padding: 56px 32px 96px;
   }
@@ -235,5 +175,23 @@ const itemsFiltrados = computed(() => {
   .menu-section__title {
     font-size: 26px;
   }
+
+  .filtros {
+    max-width: 650px;
+    padding-inline: 25px;
+  }
+
+  .filtros__btn{
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+
+  .filtros__btn:hover {
+    background: var(--color-fuego);
+    color: var(--color-hueso);
+  }
 }
+
+
+
 </style>

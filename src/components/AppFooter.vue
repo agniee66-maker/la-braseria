@@ -10,9 +10,9 @@
       </div>
 
       <ul class="footer__contact">
-        <li>Avinguda del Mar 12, Barcelona</li>
-        <li>Tel. 977 000 000</li>
         <li>agniee66@gmail.com</li>
+        <li>Tel. 900 000 000</li>
+        <li>Creado y diseñado por Agniee-Maker</li>
       </ul>
 
       <span class="footer__copy">© 2026 Agniee-Maker</span>

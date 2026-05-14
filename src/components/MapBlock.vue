@@ -14,7 +14,7 @@
 .map-block {
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
 }
 
@@ -24,4 +24,11 @@
   border: 0;
   display: block;
 }
+
+@media (max-width: 820px) {
+  .map-block {
+    border-radius: 0px;
+  }
+}
+
 </style>

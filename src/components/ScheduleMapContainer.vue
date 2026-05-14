@@ -43,8 +43,9 @@ import Schedule from '../components/Schedule.vue'
 @media (max-width: 820px) {
   .schedule-map-inner {
     grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 40px 20px;
+    gap: 0px;
+    padding: 0px;
+    border-radius: 0px;
   }
 
   .schedule-map__schedule {

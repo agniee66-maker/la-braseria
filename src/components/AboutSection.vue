@@ -147,12 +147,13 @@
     max-height: none;
     grid-template-columns: 1fr;
     gap: 0px;
-    padding: 20px 20px;
+    padding: 0px;
   }
 
   .about__content {
     padding: 20px 22px;
     gap: 14px;
+    border-radius: 0px;
   }
 
   .about__kicker {
@@ -169,13 +170,8 @@
     max-width: 100%;
   }
 
-  .about__gallery {
-    min-height: 240px;
-    height: 240px;
-  }
-
   .about__img {
-    border-radius: var(--radius-sm);
+    border-radius: 0;
   }
 
 }

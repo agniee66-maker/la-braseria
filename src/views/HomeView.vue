@@ -11,7 +11,6 @@
 
         <!-- ============ BLOQUE VERDE (quote + nav) ============ -->
         <section class="grove">
-          <div class="grove__glow" aria-hidden="true"></div>
 
           <div class="grove__inner">
             <!-- Frase -->
@@ -24,6 +23,7 @@
             <!-- Navegación -->
             <NavigationGrid :cards="navCards" />
           </div>
+          
           
           <AboutSection />
 
@@ -88,27 +88,14 @@ const navCards = [
   background:
     radial-gradient(
       ellipse at 10% 70%,
-      rgba(207, 191, 40, 0.18) 0%,
-      transparent 55%
+      rgba(190, 108, 0, 0.18) 0%,
+      transparent 60%
     );
   z-index: 0;
   pointer-events: none;
 }
 
-/* Radial cálido */
-.grove__glow {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(
-      ellipse at 50% 70%,
-      rgba(217, 164, 65, 0.10) 0%,
-      rgba(182, 58, 43, 0.06) 40%,
-      transparent 70%
-    );
-  z-index: 0;
-  pointer-events: none;
-}
+
 
 /* Contenedor interno — respeta los 1280px */
 .grove__inner {

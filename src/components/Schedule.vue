@@ -1,6 +1,12 @@
 <template>
   <div class="schedule-block">
-    <h3 class="schedule-block__title">Horarios</h3>
+    <div class="iconTitle_block">
+      <span class="info-card__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </span>
+      <h3 class="schedule-block__title">Horarios</h3>
+    </div>
+  
     <div class="schedule-block__divider"></div>
 
     <ul class="schedule-block__list">
@@ -33,6 +39,18 @@ const schedule = [
   height: 100%;
   background-color: var(--color-monte);
   border-radius: var(--radius-sm);
+}
+
+.iconTitle_block {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.info-card__icon {
+  width: 2px;
+  height: 22px;
+  color: var(--color-fuego);
 }
 
 .schedule-block__title {
@@ -70,5 +88,11 @@ const schedule = [
 
 .schedule-block__hours {
   color: var(--text-muted);
+}
+
+@media (max-width: 820px) {
+  .schedule-block {
+    border-radius: 0px;
+  }
 }
 </style>

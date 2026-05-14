@@ -122,18 +122,35 @@ const heroButtons = []
 .nosotros {
   display: flex;
   flex-direction: column;
+  background-color: var(--bg-primary);
+  background:
+    radial-gradient(
+      ellipse at 10% 80%,
+      rgba(190, 108, 0, 0.18) 0%,
+      transparent 40%
+    );
 }
 
+
+
 section {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
   position: relative;
   overflow: hidden;
+}
+
+.story,
+.values,
+.cta {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .story {
   background: var(--color-hueso);
   padding: 50px 48px;
+  border-radius: var(--radius-md);
+  margin-bottom: 32px;
 }
 
 .story__inner {
@@ -143,7 +160,7 @@ section {
   grid-template-columns: 1.3fr 1fr;
   gap: 80px;
   align-items: start;
-  padding: 50px 48px;
+  
 }
 
 .story__text {
@@ -220,6 +237,8 @@ section {
 .values {
   background: var(--color-monte);
   padding: 50px 48px;
+  border-radius: var(--radius-md);
+  margin-bottom: 32px;
 }
 
 .values__sun {
@@ -232,7 +251,7 @@ section {
   background-image: url('../assets/logo.png');
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
   opacity: 0.07;
   filter: brightness(0) saturate(100%) invert(78%) sepia(50%) saturate(600%) hue-rotate(3deg) brightness(95%);
   pointer-events: none;
@@ -244,7 +263,7 @@ section {
   z-index: 1;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 50px 48px;
+  
 }
 
 .values__head {
@@ -328,6 +347,7 @@ section {
   background: var(--color-fuego);
   padding: 90px 48px;
   text-align: center;
+  border-radius: var(--radius-md) var(--radius-md) 0px 0px;
 }
 
 .cta::before {
@@ -416,6 +436,8 @@ section {
   
   .story {
     padding: 60px 20px;
+    border-radius: 0px;
+    margin-bottom: 0;
   }
 
   .story__inner {
@@ -432,22 +454,10 @@ section {
     font-size: 36px;
   }
 
-  .team {
-    padding: 60px 20px;
-  }
-
-  .team__head {
-    margin-bottom: 36px;
-    text-align: left;
-  }
-
-  .team__grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
   .values {
     padding: 60px 20px;
+    border-radius: 0px;
+    margin-bottom: 0;
   }
 
   .values__inner {
@@ -471,6 +481,7 @@ section {
 
   .cta {
     padding: 60px 20px;
+    border-radius: 0px;
   }
 }
 </style>
