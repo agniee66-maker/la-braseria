@@ -48,26 +48,38 @@ const close = () => emit('close')
 
 const formattedPrice = computed(() => {
   if (!props.item) return ''
-  return `${props.item.price.toFixed(2).replace('.', ',')} €`
+  return `${Number(props.item.price).toFixed(2).replace('.', ',')} €`
 })
 
 const handleKey = (e) => {
   if (e.key === 'Escape' && props.item) close()
 }
 
+const lockScroll = () => {
+  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+
+  document.body.style.overflow = 'hidden'
+  document.body.style.paddingRight = `${scrollbarWidth}px`
+}
+
+const unlockScroll = () => {
+  document.body.style.overflow = ''
+  document.body.style.paddingRight = ''
+}
+
 watch(() => props.item, (val) => {
   if (val) {
     document.addEventListener('keydown', handleKey)
-    document.body.style.overflow = 'hidden'
+    lockScroll()
   } else {
     document.removeEventListener('keydown', handleKey)
-    document.body.style.overflow = ''
+    unlockScroll()
   }
 })
 
 onUnmounted(() => {
   document.removeEventListener('keydown', handleKey)
-  document.body.style.overflow = ''
+  unlockScroll()
 })
 </script>
 
@@ -78,7 +90,8 @@ onUnmounted(() => {
   background: rgba(14, 14, 14, 0.55);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  z-index: 2000;
+  z-index: 9999;
+  
   display: flex;
   align-items: center;
   justify-content: center;

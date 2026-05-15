@@ -82,16 +82,15 @@
 <script setup>
 import PageHeader from '../components/PageHeader.vue'
 import MapBlock from '../components/MapBlock.vue'
+import { ref, onMounted } from 'vue';
 
-const schedule = [
-  { day: "Lunes",         hours: "Cerrado" },
-  { day: "Martes",        hours: "13:00 — 16:00" },
-  { day: "Miércoles",     hours: "13:00 — 16:00" },
-  { day: "Jueves",        hours: "13:00 — 16:00 · 20:00 — 23:00" },
-  { day: "Viernes",       hours: "13:00 — 16:00 · 20:00 — 23:30" },
-  { day: "Sábado",        hours: "13:00 — 16:30 · 20:00 — 23:30" },
-  { day: "Domingo",       hours: "13:00 — 16:30" },
-]
+const schedule = ref([])
+
+onMounted(async () => {
+  const res = await fetch('/data/schedule.json') 
+  schedule.value = await res.json()
+})
+
 </script>
 
 <style scoped>

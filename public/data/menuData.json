@@ -70,6 +70,16 @@
         "categoria": "principales"
     },
     {
+        "name": "Costillas BBQ a la brasa",
+        "description": "Costillas de cerdo marinadas en una mezcla de especias y fritas a la parrilla.",
+        "longDescription": "Costillas de cerdo marinadas durante 24 horas en una mezcla de especias y vino tinto. Luego fritas a la parrilla hasta que estén tiernas y crujientes. Servidas con nuestra salsa BBQ casera y ensalada de repollo.",
+        "image": "https://diy-ideas.oss-accelerate.aliyuncs.com/wp-content/uploads/2024/08/ribs-seasoning.png",
+        "price": 19.00,
+        "allergens": ["Lácteos", "Gluten"],
+        "tag": "Top ventas",
+        "categoria": "principales"
+    },
+    {
         "name": "Zumo de naranja natural",
         "description": "Zumo de naranja recién exprimido, sin añadir azúcar ni otros ingredientes.",
         "longDescription": "Naranjas valencianas exprimidas en el momento que lo pides. Sin azúcar añadido, sin agua, sin nada más. Solo la fruta y el frío de un vaso bien servido.",
