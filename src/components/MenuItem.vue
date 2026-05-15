@@ -1,22 +1,28 @@
 <template>
   <article class="menu-item" @click="$emit('select')">
-    <span v-if="tag" class="menu-item__tag">{{ tag }}</span>
+    <img v-if="image" :src="image" :alt="name" class="menu-item__image" />
 
-    <div class="menu-item__row">
-      <h3 class="menu-item__name">{{ name }}</h3>
+    <div class="menu-item__content">
+      <span v-if="tag" class="menu-item__tag">{{ tag }}</span>
+
+      <div class="menu-item__row">
+        <h3 class="menu-item__name">{{ name }}</h3>
       
-      <span class="menu-item__price">{{ formattedPrice }}</span>
+        <span class="menu-item__price">{{ formattedPrice }}</span>
+      </div>
+
+      <p v-if="description" class="menu-item__desc">{{ description }}</p>
+
+      <ul v-if="allergens?.length" class="menu-item__allergens">
+        <li
+          v-for="a in allergens"
+          :key="a"
+          class="menu-item__allergen"
+        >{{ a }}
+        </li>
+      </ul>
     </div>
-
-    <p v-if="description" class="menu-item__desc">{{ description }}</p>
-
-    <ul v-if="allergens?.length" class="menu-item__allergens">
-      <li
-        v-for="a in allergens"
-        :key="a"
-        class="menu-item__allergen"
-      >{{ a }}</li>
-    </ul>
+    
   </article>
 </template>
 
@@ -27,6 +33,7 @@ const props = defineProps({
   name:        { type: String, required: true },
   description: { type: String, default: '' },
   price:       { type: Number, required: true },
+  image:       { type: String, default: '' },
   allergens:   { type: Array,  default: () => [] },
   tag:         { type: String, default: '' }
 })
@@ -41,13 +48,28 @@ const formattedPrice = computed(() => {
 <style scoped>
 .menu-item {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 0px;
+  border-bottom: 1px solid rgba(14, 14, 14, 0.08);
+  cursor: pointer;
+}
+
+.menu-item__content {
+  display: flex;
   flex-direction: column;
   gap: 6px;
   padding: 18px 10px;
-  border-bottom: 1px solid rgba(14, 14, 14, 0.08);
+  
+}
+
+.menu-item__image {
+  width: 100px;
+  height: 150px;
+  
   border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: background var(--transition-fast);
+  object-fit: cover;
 }
 
 .menu-item:hover{
@@ -72,30 +94,22 @@ const formattedPrice = computed(() => {
 
 .menu-item__row {
   display: flex;
+  gap: 5px;
   justify-content: space-between;
 }
 
 .menu-item__name {
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 700;
   color: var(--color-brasa);
   line-height: 1.2;
   letter-spacing: 0.005em;
 }
 
-.menu-item__dots {
-  flex: 1;
-  align-self: center;
-  height: 0;
-  border-bottom: 1.5px dotted rgba(14, 14, 14, 0.25);
-  margin: 0 4px;
-  transform: translateY(2px);
-}
-
 .menu-item__price {
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--color-fuego);
   white-space: nowrap;
@@ -131,6 +145,30 @@ const formattedPrice = computed(() => {
 }
 
 @media (min-width: 768px) {
+  .menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 12px;
+  padding: 18px 10px;
+  border-bottom: 1px solid rgba(14, 14, 14, 0.08);
+  cursor: pointer;
+  }
+
+  .menu-item__content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px 10px;
+  }
+
+  .menu-item__image {
+    width: 200px;
+   height: 200px;
+
+    border-radius: var(--radius-md);
+    object-fit: cover;
+  }
   .menu-item {
     padding: 22px 10px;
     gap: 8px;

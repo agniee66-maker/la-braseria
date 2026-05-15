@@ -29,6 +29,7 @@
             :name="item.name"
             :description="item.description"
             :price="item.price"
+            :image="item.image"
             :allergens="item.allergens"
             :tag="item.tag"
             @select="selectedItem = item"
@@ -112,7 +113,7 @@ const itemsFiltrados = computed(() => {
 .menu-view__main {
   max-width: 720px;
   margin: 0 auto;
-  padding: 32px 24px 64px;
+  padding: 32px 18px 50px;
 }
 
 .menu-section + .menu-section {
@@ -165,7 +166,7 @@ const itemsFiltrados = computed(() => {
 
 @media (min-width: 768px) {
   .menu-view__main {
-    padding: 56px 32px 96px;
+    padding: 56px 20px 60px;
   }
 
   .menu-section + .menu-section {
