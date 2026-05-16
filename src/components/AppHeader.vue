@@ -2,7 +2,7 @@
   <header class="header" :class="{ 'is-open': isOpen }">
     <div class="header__inner">
 
-      <div class="header__brand">
+      <div class="header__brand" @click.prevent="$router.push('/')">
         <img src="../assets/logo.png" alt="Logo La Brasería" class="header__logo-img" />
         <span class="header__logo-text">La Brasería</span>
       </div>
@@ -82,6 +82,7 @@ const go = (path) => {
   align-items: center;
   gap: 0;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .header__logo-img {

@@ -50,6 +50,7 @@ const formattedPrice = computed(() => {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   padding: 18px 0px;
   border-bottom: 1px solid rgba(14, 14, 14, 0.08);
@@ -59,9 +60,9 @@ const formattedPrice = computed(() => {
 .menu-item__content {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 6px;
-  padding: 18px 10px;
-  
+  padding: 18px 10px;;
 }
 
 .menu-item__image {
@@ -164,7 +165,8 @@ const formattedPrice = computed(() => {
 
   .menu-item__image {
     width: 200px;
-   height: 200px;
+    height: 200px;
+    min-width: 200px;
 
     border-radius: var(--radius-md);
     object-fit: cover;
